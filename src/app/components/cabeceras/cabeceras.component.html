@@ -1,0 +1,24 @@
+<ion-toolbar>
+  <ion-buttons *ngIf="titulo === 'FotosGram'" slot="start">
+    <ion-icon slot="icon-only" name="bonfire"></ion-icon>
+  </ion-buttons>
+
+  <ion-buttons *ngIf="titulo === 'Actualizar perfil'" slot="end">
+    <ion-button (click)="logout()"
+                color="danger">
+      <ion-icon slot="icon-only" name="exit"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+
+  <ion-buttons *ngIf="titulo === 'Nuevo Post'" slot="end">
+    <ion-button (click)="crearPost()"
+                [disabled]="post.mensaje.length < 1 || cargandoGeo"
+                color="primary">
+      Compartir
+    </ion-button>
+  </ion-buttons>
+
+  <ion-title>
+    <h2 class="titulo">{{ titulo }}</h2>
+  </ion-title>
+</ion-toolbar>

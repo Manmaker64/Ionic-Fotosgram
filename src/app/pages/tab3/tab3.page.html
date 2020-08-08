@@ -1,0 +1,52 @@
+<ion-header class="ion-no-border">
+  <!-- Cabecera -->
+  <app-cabeceras titulo="Actualizar perfil"></app-cabeceras>
+</ion-header>
+
+<ion-content>
+  <ion-row class="top-15 bottom-20">
+    <ion-col size="12" class="ion-text-center">
+      <img src="assets/avatars/{{ usuario.avatar }}" class="img-avatar">
+    </ion-col>
+  </ion-row>
+
+  <app-avatar-selector (avatarSelected)="usuario.avatar = $event"
+                       [avatarActual]="usuario.avatar">
+  </app-avatar-selector>
+
+  <form #fActualizar (ngSubmit)="actualizar( fActualizar )" class="top-15">
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            <ion-label>Email:</ion-label>
+            <ion-input name="email"
+                       type="email"
+                       class="negrita"
+                       [(ngModel)]="usuario.email"
+                       required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Nombre:</ion-label>
+            <ion-input name="nombre"
+                       type="text"
+                       class="negrita"
+                       [(ngModel)]="usuario.nombre"
+                       required></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row class="top-15">
+      <ion-col text-center>
+        <ion-button type="submit"
+                    color="tertiary"
+                    shape="round">
+          Actualizar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
